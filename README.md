@@ -17,4 +17,7 @@ Se trabajo con tres modelos, los cuales son: post, userblog, comentarios, cada u
 1. Para el registro de un blog es necesario registrarse como un usuario, el mismo registro lo utilizamos para acceder a la pagina web, posteriormente podemos adicionar un nuevo blog.
 2. Cuando se creo un blog se puede adicionar un comentario.
 
+## Datos de prueba
+Se crearon registros al iniciar para mostrar información de blogs.
+
 
