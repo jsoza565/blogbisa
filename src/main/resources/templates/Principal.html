@@ -13,11 +13,12 @@
 <h1>Blog Games</h1>
 <hr />
 <ul>
-    <li><a th:href="@{/posts/new}">Crear una publicacion</a></li>
+    <li><a th:href="@{/posts/newblog}">Crear una publicacion</a></li>
 </ul>
 <div class="posts-container">
     <div class="post" th:each="post : ${posts}">
         <h2><a th:href="@{'/posts/' + ${post.id}}" th:text="${post.title}">Titulo</a></h2>
+        <h5 th:text="'Escrito por ' + ${post.userBlog.name}">Usuario</h5>
         <h5 th:text="'Published at ' + ${post.createdAt}">Fecha de creacion</h5>
         <p th:text="${post.body}">Texto</p>
         <br>

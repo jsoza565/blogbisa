@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi blog</title>
 </head>
 <body>
-$END$
+<div class="container">
+    <a th:href="@{/}">Principal</a>
+    <div class="post">
+
+        <h2 th:text="${post.title}">Titulo</h2>
+        <h5 th:text="'Creado en' + ${post.createdAt}">Creado</h5>
+        <p th:text="${post.body}">texto</p>
+    </div>
+</div>
+
 </body>
 </html>
