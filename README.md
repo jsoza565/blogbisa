@@ -9,6 +9,7 @@
 Se crearon los endpoints para los autores, el blog y los comentarios, cada uno con su logica de negocio y para las vistas se utilizara thymeleaf que se usa en los formularios y el despliegue de la informacion, los mismo que consumen y envian informacion a los endpoints mencionados.
 
 ## Diseno de la base de datos 
+![blog_games drawio](https://github.com/user-attachments/assets/3fbc0660-c022-406b-80d9-e874c609b3fe)
 
 
 ## Explicacion del codigo fuente
