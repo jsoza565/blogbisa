@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificando</title>
+    <script>
+        window.onload = function() {
+            // Obtener el correo electrónico desde localStorage
+            const usuario = JSON.parse(localStorage.getItem('userBlog'));
+            if (usuario && usuario.email) {
+                // Realiza una petición GET al endpoint, enviando el correo como parámetro
+                fetch(`/posts/new?email=${encodeURIComponent(usuario.email)}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            // Redirige a la página de error si la respuesta no es correcta
+                            window.location.href = '/error404';
+                        }
+                        return response.text();
+                    })
+                    .then(html => {
+                        // Insertar la respuesta HTML en la página (asume que el servidor retorna HTML)
+                        document.body.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('Error en la solicitud:', error);
+                        window.location.href = '/error404';
+                    });
+            } else {
+                // Si no hay usuario en localStorage, redirigir al error
+                window.location.href = '/error404';
+            }
+        };
+    </script>
+</head>
+<body>
+<h2>Crear Nuevo Post</h2>
+</body>
+</html>

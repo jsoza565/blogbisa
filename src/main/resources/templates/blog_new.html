@@ -13,7 +13,7 @@
           th:action="@{'/posts/new'}"
           th:object="${post}"
           method="POST">
-        <input type="hidden" th:field="*{setUserBlog}" />
+        <input type="hidden" th:field="*{userBlog.id}" />
         <input type="hidden" th:field="*{createdAt}" />
         <h2>Crear nuevo Blog</h2>
         <div>

@@ -7,10 +7,7 @@ import com.blog.bisa.jlss.services.UserBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -38,17 +35,27 @@ public class NewBlogController {
     }
 
     @GetMapping("/posts/new")
-    public String createNewPost(Model model) {
+    public String createNewPost(@RequestParam("email") String email, Model model) {
 
-       Optional<UserBlog> optionalUserBlog = userBlogService.findByEmail("juan@gmail.com");
+        // Busca al usuario usando el correo proporcionado
+        Optional<UserBlog> optionalUserBlog = userBlogService.findByEmail(email);
+
         if (optionalUserBlog.isPresent()) {
             Post post = new Post();
-           post.setUserBlog(optionalUserBlog.get());
-           model.addAttribute("post", post);
+            // Asigna el UserBlog al Post
+            post.setUserBlog(optionalUserBlog.get());
+            model.addAttribute("post", post);
+            System.out.println("Entrooooooo");
             return "blog_new";
         } else {
             return "error404";
         }
+    }
+
+    @GetMapping("/posts/verificar")
+    public String verifcationUSer() {
+
+        return "/verificar";
     }
 
     @PostMapping("/posts/new")
