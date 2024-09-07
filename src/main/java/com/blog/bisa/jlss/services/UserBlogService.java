@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,4 +21,9 @@ public class UserBlogService {
         }
         return userBlogRepository.save(userBlog);
     }
+    public Optional<UserBlog> findByEmail(String email) {
+        return userBlogRepository.findOneByEmail(email);
+    }
+
+
 }

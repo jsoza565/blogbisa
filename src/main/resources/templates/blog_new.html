@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Blog</title>
+</head>
+<body>
+<div class="container">
+    <a th:href="@{/}">Principal</a>
+    <form action="#"
+          th:action="@{'/posts/new'}"
+          th:object="${post}"
+          method="POST">
+        <input type="hidden" th:field="*{setUserBlog}" />
+        <input type="hidden" th:field="*{createdAt}" />
+        <h2>Crear nuevo Blog</h2>
+        <div>
+            <label for="new-title">Titulo del Blog</label>
+            <input id="new-title" type="text" th:field="*{title}" placeholder="Titulo"/>
+        </div>
+        <div>
+            <label for="new-issue">Tema del Blog</label>
+            <input id="new-issue" type="text" th:field="*{issue}" placeholder="Tema del Blog"/>
+        </div>
+        <div>
+            <label for="new-periodicity">Cada cuanto se actualizara este blog (dias/semanas/meses)</label>
+            <input id="new-periodicity" type="text" th:field="*{periodicity}" placeholder="Periodicidad"/>
+        </div>
+        <div>
+            <label for="gre">Blog publico?</label>
+            <input id="gre" type="checkbox" name="gre" th:checked="*{state_comment}"  />
+        </div>
+        <div>
+            <label for="new-body">Texto del Blog</label>
+            <textarea id="new-body" th:field="*{body}" placeholder="Texto del Blog"></textarea>
+        </div>
+        <button type="submit">Publicar Blog</button>
+    </form>
+</div>
+
+</body>
+</html>

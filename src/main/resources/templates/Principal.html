@@ -13,7 +13,7 @@
 <h1>Blog Games</h1>
 <hr />
 <ul>
-    <li><a th:href="@{/posts/newblog}">Crear una publicacion</a></li>
+    <li><a th:href="@{/posts/new}">Crear una publicacion</a></li>
 </ul>
 <div class="posts-container">
     <div class="post" th:each="post : ${posts}">
@@ -23,6 +23,12 @@
         <p th:text="${post.body}">Texto</p>
         <br>
     </div>
+</div>
+<div>
+    <ul>
+        <li><a th:href="@{/registrar}">Registrarse</a></li>
+        <li><a th:href="@{/login}">Acceder</a></li>
+    </ul>
 </div>
 </body>
 </html>
