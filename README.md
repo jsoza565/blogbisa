@@ -14,5 +14,7 @@ Se crearon los endpoints para los autores, el blog y los comentarios, cada uno c
 
 ## Explicacion del codigo fuente
 Se trabajo con tres modelos, los cuales son: post, userblog, comentarios, cada uno con sus services, repositories y controllers para el funcionamiento y creacion de los APIs Rest.
+1. Para el registro de un blog es necesario registrarse como un usuario, el mismo registro lo utilizamos para acceder a la pagina web, posteriormente podemos adicionar un nuevo blog.
+2. Cuando se creo un blog se puede adicionar un comentario.
 
 
