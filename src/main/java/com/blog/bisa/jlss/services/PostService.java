@@ -3,6 +3,7 @@ package com.blog.bisa.jlss.services;
 import com.blog.bisa.jlss.models.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.blog.bisa.jlss.repositories.PostRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -26,7 +27,7 @@ public class PostService {
         if (post.getId() == null) {
             post.setCreatedAt(LocalDateTime.now());
         }
-        post.setUpdatedAt(LocalDateTime.now());
+        //post.setUpdatedAt(LocalDateTime.now());
         return postRepository.save(post);
     }
 

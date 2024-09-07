@@ -18,20 +18,9 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
-
     String title;
-
     @Column(columnDefinition = "TEXT")
     String body;
 
     LocalDateTime createdAt;
-
-    LocalDateTime updatedAt;
-
-    String imageFilePath;
-
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
-    Account account;
 }
