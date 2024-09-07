@@ -13,7 +13,7 @@
     <h2>Iniciar Sesion</h2>
     <form action="#"
           th:action="@{/login}"
-          method="POST">
+          method="POST" th:object="${userBlog}">
         <div>
             <label for="email">Email</label>
             <input id="email" type="text" name="email" placeholder="Email" />

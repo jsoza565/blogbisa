@@ -25,5 +25,12 @@ public class UserBlogService {
         return userBlogRepository.findOneByEmail(email);
     }
 
+    public UserBlog autenticar(String email, String password) {
+        UserBlog userBlog = userBlogRepository.findByEmail(email);
+        if (userBlog != null && userBlog.getPassword().equals(password)) {
+            return userBlog;
+        }
+        return null;
+    }
 
 }

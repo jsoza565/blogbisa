@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bienvenido</title>
+    <script>
+        // Función para guardar los datos del usuario en localStorage
+        function guardarUsuarioEnLocalStorage() {
+            // Obtener los datos del usuario desde la vista Thymeleaf
+            console.log('[[${userBlog.email}]]');
+            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5');
+            const userBlog = {
+                email: '[[${userBlog.email}]]',
+                name: '[[${userBlog.name}]]'
+            };
+
+            // Guardar los datos en localStorage
+            localStorage.setItem('userBlog', JSON.stringify(userBlog));
+
+            // Mostrar mensaje de bienvenida personalizado
+            document.getElementById('mensajeBienvenida').textContent = '¡Bienvenido, ' + userBlog.name + '!';
+        }
+
+        // Ejecutar la función cuando la página cargue
+        window.onload = guardarUsuarioEnLocalStorage;
+    </script>
+</head>
+<body>
+<h1 id="mensajeBienvenida">¡Bienvenido!</h1>
+<p>Has iniciado sesión exitosamente.</p>
+
+<script>
+    // Función para mostrar los datos almacenados en localStorage
+
+    function redireccionarPagina() {
+  window.location = "http://localhost:8080/";
+}
+setTimeout("redireccionarPagina()", 2000);
+</script>
+</body>
+</html>

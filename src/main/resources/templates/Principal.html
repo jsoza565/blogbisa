@@ -7,8 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mi Blog</title>
+<script>
+    (function verificar() {
+       const userBlog = JSON.parse(localStorage.getItem('userBlog'));
+       if (userBlog) {
+           document.getElementById('datosUsuario').textContent = 'Usuario: ' + userBlog.name + ';
+       } else {
+           document.getElementById('datosUsuario').textContent = '';
+       }
+   })();
+
+</script>
 </head>
 <body>
+<p th:if="${userBlog}" th:text="'Has iniciado sesión como ' + ${userBlog.name}"></p>
 
 <h1>Blog Games</h1>
 <hr />
